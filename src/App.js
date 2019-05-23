@@ -51,7 +51,7 @@ class App extends Component {
       content = (
         <main className="App-main">
           <div><button onClick={(e) => this.refreshLayout(e)}>New Game</button></div>
-          <p>Collect all of the _____ circles!</p>
+          <p>{this.state.boardConfig.rules}</p>
           <div class="columnLayout">
             <ChessBoard id="chessBoard" config={this.state.boardConfig} ref={this.boardRef} characterRef={this.characterRef} />
             <DirectionControls characterRef={this.characterRef} />
