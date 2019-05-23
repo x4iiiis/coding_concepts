@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import character from './images/character.svg';
 import { relative } from 'path';
+import { timeout } from 'q';
 
 class Character extends Component{
 
@@ -19,21 +20,47 @@ class Character extends Component{
     }
     
     moveForward(){
-        this.state.position.y++;
-        this.state.positionOffset.top += 51;
-        this.setState(this.state);
+        if(this.state.position.y < 9) {
+            this.state.position.y++;
+            this.state.positionOffset.top += 51;
+            this.setState(this.state);
+        }
+        else {
+            console.log("Can't move any further forward!");
+        }
     }
 
     moveBack(){
-        this.state.position.y--;
+        if(this.state.position.y > 1) {
+            this.state.position.y--;
+            this.state.positionOffset.top -= 51;
+            this.setState(this.state);
+        }
+        else {
+            console.log("Can't move any further back!");
+        }
     }
 
     moveLeft(){
-        this.state.position.x--;
+        if(this.state.position.x > 1) {
+            this.state.position.x--;
+            this.state.positionOffset.left -= 51;
+            this.setState(this.state);
+        }
+        else{
+            console.log("Can't move any further left!");
+        }
     }
 
     moveRight(){
-        this.state.position.x++;
+        if (this.state.position.x < 8) {
+            this.state.position.x++;
+            this.state.positionOffset.left += 51;
+            this.setState(this.state);
+        }
+        else {
+            console.log("Can't move any further right!");
+        }
     }
 
 
